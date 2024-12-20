@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Game Tutorials</title>
+<style>
+    /* Style for the buttons */
+    .tutorial-link {
+        display: flex;
+        flex-direction: column; /* Arrange children vertically */
+        padding: 10px 15px; /* Adjusted padding */
+        background-color: #006400;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px; /* Rounded corners */
+        margin-right: 10px; /* Space between buttons */
+        margin-bottom: 40px; /* Space between rows of buttons */
+        position: relative; /* Needed for absolute positioning */
+        overflow: hidden; /* Hide overflow */
+        transition: width 0.5s ease; /* Smooth transition */
+        width: 170px; /* Initial button width */
+        height: 150px; /* Button height */
+    }
+
+    /* Style for images */
+    .tutorial-img {
+        width: 160px; /* Adjust image size */
+        height: 110px; /* Maintain aspect ratio */
+        margin-right: 10px; /* Space between image and text */
+    }
+
+    /* Styling for video element */
+    .tutorial-link video {
+        position: absolute;
+        top: 0;
+        left: 100%; /* Start the video at the right side of the button */
+        width: 200px; /* Adjust width as needed */
+        height: 100%;
+        object-fit: cover; /* Cover the video element */
+        transition: left 0.5s ease; /* Smooth sliding transition */
+        z-index: 10; /* Ensure video is on top of any other elements */
+    }
+    
+
+    .tutorial-link:hover video {
+        left: 0px; /* Adjust the left position to slide the video out */
+    }
+</style>
+{% endblock %}
+
+{% block h1 %}
+<h1>Game Tutorials</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Tutorials</h2>
+    <ul>
+        <li>
+            <a href="baccarattutorial" class="tutorial-link" onmouseover="playVideo(this)" onmouseleave="stopVideo(this)">
+                <img src="{{ url_for('static', filename='images/Baccarat.jpg') }}" alt="Baccarat" class="tutorial-img">
+                Baccarat Tutorial
+                <!-- Video element for animation -->
+                <video loop muted>
+                    <source src="{{ url_for('static', filename='videos/baccarat.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </li>
+        <li>
+            <a href="blackjacktutorial" class="tutorial-link" onmouseover="playVideo(this)" onmouseleave="stopVideo(this)">
+                <img src="{{ url_for('static', filename='images/Blackjack.png') }}" alt="Blackjack" class="tutorial-img">
+                Blackjack Tutorial
+                <!-- Video element for animation -->
+                <video loop muted>
+                    <source src="{{ url_for('static', filename='videos/blackjack.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<!-- Add the script tag to link your JavaScript file -->
+<script src="{{ url_for('static', filename='js/animationtutorial.js') }}"></script>
+{% endblock %}

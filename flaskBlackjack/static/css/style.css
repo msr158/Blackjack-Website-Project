@@ -1,0 +1,174 @@
+@import url('cyberpunk.css');
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+body:not(.registration):not(.login) {
+    background-image: url("website_background.png");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+    background-size: cover; /* Cover the entire content area */
+    background-attachment: fixed; /* Fix the background image */
+    font-family: "Oxanium"; /*font style of general text, change later */
+     color: white; /* Default text color for whole website*/
+}
+
+/*imports custom fonts(3)*/
+@font-face {
+    font-family: 'Cyberpunk';
+    src: url('../fonts/Cyberpunk.otf') format('opentype');
+}
+@font-face {
+    font-family: 'BlenderProBook';
+    src: url('../fonts/BlenderProBook.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Oxanium';
+    src: url('../fonts/Oxanium.woff2') format('woff2');
+}
+header {
+    /*background-color: #333;*/
+    color: #fff;
+    /*height: 100px; /*change header size*/
+    font-size:42px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Cyberpunk';
+}
+
+#main-header.cyberpunk-font-og {
+    font-family: 'Cyberpunk';
+}
+
+nav {
+    background-color: #a30a8c4b;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Cyberpunk';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    /*background-color: #333;*/
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    /* make copyright footer be a fixed position at bottom of page */
+    width: 100%; /* Full width */
+    position: fixed; /* Fix position */
+    left: 0; /* Align left */
+    bottom: 0; /* Align bottom */
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.achievement {
+    border: 2px solid #333;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.stats {
+    border: 2px solid #333;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#game-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+#player-hand, #dealer-hand {
+    border: 2px solid #333;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    background-color: #333;
+}
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+}
+#action-buttons {
+    margin-top: 20px;
+}
+#action-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#tutorial-step {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#tutorial-content {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#next-step-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}

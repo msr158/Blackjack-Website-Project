@@ -1,0 +1,43 @@
+initialize matchmakingQueue as empty queue
+
+function addPlayerToQueue(playerID):
+    matchmakingQueue.enqueue(playerID)
+
+function matchPlayers():
+    if matchmakingQueue.size() >= 2:
+        player1 = matchmakingQueue.dequeue()
+        player2 = matchmakingQueue.dequeue()
+        return (player1, player2)
+    else:
+        return None
+
+// Example
+addPlayerToQueue("Player1")
+addPlayerToQueue("Player2")
+
+match = matchPlayers()
+if match is not None:
+    print("Match found:", match[0], "vs", match[1])
+    // Proceed to start the game
+else:
+    print("Waiting for more players...")
+
+
+Why you are doing it:
+    We are undertaking this project to develop foundational components necessary for later stages of the blackjack game development. 
+This groundwork is essential for integrating more complex features in the future.
+
+What you expect to learn/do:
+    Through this research, I aim to deepen my understanding of game theory and its application in creating efficient matching algorithms. 
+Specifically, I will explore modules such as NumPy for mathematical operations and Pygame for game development. 
+This exploration will focus on algorithm optimization techniques and their implementation in Python, directly impacting our approach to the game's logic and player matchmaking systems."
+   
+What do you expect to do with it, including any code you expect to write.
+    The outcome of this research will be directly applied to developing the game's matchmaking algorithm. 
+This includes writing a Matchmaking class that incorporates optimized game theory principles to pair players based on skill level or other criteria. 
+The code will be structured to ensure scalability and maintainability, allowing for easy adjustments and additions as the game evolves."
+    
+What task(s) in Jira represent the work you will do that was/is dependent on the research/training.
+    This research underpins the Jira task related to 'Develop Matchmaking Games Algorithm.' 
+Successful completion of this task is contingent upon the insights and methodologies derived from the research, 
+guiding the development of an efficient and fair matchmaking system for our game."

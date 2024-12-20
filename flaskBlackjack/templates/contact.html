@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Contact Us</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+    input[type="text"]{},
+    input[type="email"]{},
+</style>
+{% endblock %} 
+
+{% block h1 %}
+<h1>Contact Us</h1>
+{% endblock %}
+
+{% block content %}
+    <div style="height: 100px;"></div> <!--blank space-->>
+    <form action="/changelater" method="POST">  <!--/change later-->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send</button>
+    <div style="height: 100px;"></div> <!--blank space-->>
+    </form>
+{% endblock %}
+
+`

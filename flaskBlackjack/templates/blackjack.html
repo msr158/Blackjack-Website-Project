@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Blackjack Game</title>
+    <!--link to dealer.css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css///blackjack.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css///style.css') }}">
+    {% endblock %}
+
+    {% block h1 %}
+    <h1>Blackjack Game</h1>
+    {% endblock %}
+
+    {% block content %}
+    <section>
+        <!--created dealer id-->
+        <div id="dealer">
+            <img class = "dealer" src="static/css/dealer.jpg" alt="img of dealer"> <!--linked to css-->
+        </div>
+        <div id="game-container">
+            <div id="player-hand">
+                <h2>Player's Hand</h2>
+            </div>
+            <div id="dealer-hand">
+                <h2>Dealer's Hand</h2>
+            </div>
+        </div>
+        <div id="player-value">Player's Value: 0</div>
+        <div id="bank-account" data-url="{{ url_for('balance')}}">
+            Bank Account: ${{ current_user.bank_account.balance }}
+        </div>
+        <div id="bet-count">Current Bet: $<span id="current-bet">100</span></div>
+        <div id="result"></div>
+        <div id="action-buttons">
+            <button onclick="startGame()">Start Game</button>
+            <button id="hit-button" onclick="hit()">Hit</button>
+            <button id="stand-button" onclick="stand()">Stand</button>
+            <button id="double-down-button" onclick="doubleDown()">Double Down</button>
+            <button id="decrease-bet-button" onclick="decreaseBet()">Decrease Bet by 50</button> 
+            <button id="increase-bet-button" onclick="increaseBet()">Increase Bet by 50</button> 
+        </div>
+        
+    </section>
+
+    <audio id="winSound" src="static/sounds/win.wav"></audio>
+    <audio id="loseSound" src="static/sounds/lose.wav"></audio>
+    <audio id="winDoubleSound" src="static/sounds/winDouble.wav"></audio>
+    <audio id="loseDoubleSound" src="static/sounds/loseDouble.wav"></audio>
+
+    <script src = "{{ url_for('static',filename = 'js/blackjack.js') }}"></script> 
+    {% endblock %}

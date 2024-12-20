@@ -1,0 +1,11 @@
+Title or name of research/training
+Why you are doing it.
+What you expect to learn/do.   Be specific by identifying what code/modules will be affected by the research/training.
+What do you expect to do with it, including any code you expect to write.  Be specific.  For example, "Writing the UI" is not sufficient.   "Writing the Login class" is.
+What task(s) in Jira represent the work you will do that was/is dependent on the research/training.
+
+1. creating a website 
+2. to learn how to create a website
+3. I expect to learn how to create a website from scratch by using google/chatgpt to get starter code
+4. Getting html boilerplate/starter template and code for running a simle website
+5. This research is used for the foundation of the project and specifically "creating a website" task 

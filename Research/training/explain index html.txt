@@ -1,0 +1,25 @@
+<!DOCTYPE html>: Specifies the HTML version being used.
+
+<html lang="en">: Opening tag of the HTML doc, language used is English.
+
+<head>: Contains meta-information about the doc.
+
+<meta charset="UTF-8">: Sets character encoding , Supports languages worldwide.
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">: Sets viewport settings, ensures website scales appropriately on diff devices.
+
+<title>My Website</title>: Specifies title of webpage.
+
+<style>: Contains CSS code to style webpage
+
+body, header, nav, section, footer: CSS selectors that define styles 
+
+<h1></h1>: Heading element 
+
+<nav>: Navigation section with links (<a>) to diff pages of website.
+
+<section>: Section of content on webpage
+
+<footer>: Footer section of webpage, containing copyright information.
+
+&copy;: Represents the copyright symbol (©).

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Profile Page</title>
+<!--link to profile.css-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css///profile.css') }}">
+<!--link to cyberpunk.css-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cyberpunk.css') }}">
+{% endblock %} 
+
+
+{% block content %}
+<section>
+    <div class="profile">
+        {% if user is none %}
+            <p>Not logged in.</p>
+        {% endif %}
+        <h2>Hello {{ user.username }}</h2>
+        {% if user.bank_account %}
+            <p>Balance: {{ user.bank_account.balance }}</p>
+        {%endif%}
+        <!-- implemented later on 
+            {% if user.stats %}
+            <p id="win-count"> Wins: {{ user.stats.win }}</p>
+        {%endif%} -->
+
+            <!-- add buttons for stats/achievements-->
+            <button class = "cyber-button bg-yellow" onclick="displaySection('achievements_section')">Achievements</button>
+            <button class = "cyber-button bg-yellow" onclick="displaySection('stats_section')">Stats</button>
+            <button class = "cyber-button bg-yellow" onclick="window.location.href='{{ url_for('logout') }}';">Logout</button>
+
+        <!-- Achievements Section-->
+        <div id="achievements_section" style="display: none;">
+            <table class="cyber-table ac-cyan" style ="color: rgb(255, 255, 255);">
+                <tr>
+                    <th>Win a hand of blackjack</th>
+                    <th>complete the tutorial</th>
+                    <th>win 25 games</th>
+                    <th>win 500 games</th>
+                    <th>add more achievements</th>
+                </tr>
+                <tr>
+                    <td>yay</td>
+                    <td>#</td>
+                    <td id="achievement-25"></td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Stats Section-->
+        <div id="stats_section" style="display: none;">
+            <table class="cyber-table ac-yellow" style ="color: white;">
+                <tr>
+                    <th>Wins</th>
+                    <th>Win rate</th>
+                    <th>Losses</th>
+                    <th>Bust Rate</th>
+                    <th>Highest Win Streak</th>
+                    <th>Total Games Played</th>
+                    <th>Total Money Won</th>
+                </tr>
+                <tr>
+                    <td id="win-count"> {{ user.stats.win }}</td>
+                    <td>#</td>
+                    <td id="lose-count"> {{ user.stats.lose }}</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<!--link to profile.js-->
+<script src = "{{ url_for('static',filename = 'js/profile.js') }}"></script>
+{% endblock %}
+
+<!--header at top of page-->
+{% block h1 %}
+<h1>Profile</h1> 
+{% endblock %}
+
+

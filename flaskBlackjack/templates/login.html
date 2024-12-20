@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+    {% block head %}
+    <title>User Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Add this line, replace 'path/to/' with the actual path to your CSS file -->
+    <style>
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #001eff;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    {% endblock %} 
+
+    {% block h1 %}
+    <h1>Login</h1>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container cyber-glitch-2 cyber-tile">
+        <form action = "{{ url_for('login') }}" method="post" id="loginForm">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    {% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Baccarat Game</title>
+<!-- Link to baccarat.css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/baccarat.css') }}">
+{% endblock %}
+
+{% block h1 %}
+<h1>Baccarat Game</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <p>Click on 'Deal' to start the game.</p>
+
+    <!-- Player panel -->
+    <div class="panel" id="player-panel">
+        <h2>Player Hand</h2>
+        <div id="player-result"></div>
+    </div>
+
+    <!-- Banker panel -->
+    <div class="panel" id="banker-panel">
+        <h2>Banker Hand</h2>
+        <div id="banker-result"></div>
+    </div>
+
+    <!-- Deal button panel -->
+    <div class="dealpanel">
+        <button class="btn" onclick="deal()">Deal</button>
+    </div>
+
+    <!-- Result display panel -->
+    <div class="result" id="result"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/baccarat.js') }}"></script>
+<audio id="winning-sound" src="/static/audio/winningsound.mp3"></audio>
+<video id="confetti-video" src="/static/videos/confetti.webm" style="display: none;"></video>
+
+{% endblock %}

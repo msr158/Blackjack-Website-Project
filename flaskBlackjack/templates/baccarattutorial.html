@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Interactive Baccarat Tutorial</title>
+<style>
+    /* Styling the container and tutorial steps */
+    .container {
+        background-color: #2e8b57; /* Dark green background */
+        padding: 20px;
+        border-radius: 8px;
+        color: white; /* White text color */
+        width: 50%; /* Container width */
+        margin: 0 auto; /* Center the container */
+        text-align: center;
+    }
+    
+    /* Buttons styling */
+    button {
+        background-color: white;
+        color: #2e8b57;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    /* Animation for tutorial step transitions */
+    .tutorial-content {
+        transition: opacity 0.1s ease-in-out;
+    }
+    
+    /* Hidden class for smooth transitions */
+    .hidden {
+        opacity: 0;
+    }
+</style>
+{% endblock %}
+
+{% block h1 %}
+<h1>Tutorial</h1>
+{% endblock %}
+
+{% block content %}
+    <script>
+        let currentStep = 1;
+
+        // Define tutorial steps
+        const steps = {
+            1: "Welcome to the baccarat tutorial!",
+            2: "Baccarat is a card game played between the player and the banker (dealer).",
+            3: "Your goal is to bet on the hand that will have a total closest to 9 points.",
+            4: "Cards 2 through 9 are worth their face value. Aces are worth 1 point, and 10s and face cards are worth 0 points.",
+            5: "The sum of a hand's cards is calculated and only the last digit of the total counts.",
+            6: "You can bet on the player, banker, or a tie before the round starts.",
+            7: "The dealer deals two cards each to the player and banker hands.",
+            8: "A third card may be drawn based on specific rules for each hand. For example, the player draws a card if their total is 5 or less.",
+            9: "The hand closest to 9 points wins. If you bet on the correct outcome, you receive a payout."
+        };
+
+        function nextStep() {
+            if (currentStep < Object.keys(steps).length) {
+                // Transition out the current content
+                document.getElementById('tutorial-content').classList.add('hidden');
+                
+                // Once the transition is done, update the step and content
+                setTimeout(() => {
+                    currentStep++;
+                    document.getElementById('tutorial-step').innerText = `Step ${currentStep}`;
+                    document.getElementById('tutorial-content').innerText = steps[currentStep];
+                    
+                    // Transition in the new content
+                    document.getElementById('tutorial-content').classList.remove('hidden');
+                }, 500);
+            } else {
+                if (confirm("End of tutorial! Do you want to test out your skills? Press OK to play baccarat or Cancel to restart the tutorial!")) {
+                    window.location.href = "baccarat";
+                } else {
+                    restartTutorial();
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                // Transition out the current content
+                document.getElementById('tutorial-content').classList.add('hidden');
+                
+                // Once the transition is done, update the step and content
+                setTimeout(() => {
+                    currentStep--;
+                    document.getElementById('tutorial-step').innerText = `Step ${currentStep}`;
+                    document.getElementById('tutorial-content').innerText = steps[currentStep];
+                    
+                    // Transition in the new content
+                    document.getElementById('tutorial-content').classList.remove('hidden');
+                }, 500);
+            }
+        }
+
+        function restartTutorial() {
+            currentStep = 1;
+            document.getElementById('tutorial-step').innerText = `Step ${currentStep}`;
+            document.getElementById('tutorial-content').innerText = steps[currentStep];
+        }
+
+    </script>
+    <div class="container">
+        <h2 id="tutorial-step">Step 1</h2>
+        <p id="tutorial-content" class="tutorial-content">Welcome to the baccarat tutorial!</p>
+        <button id="prev-step-btn" onclick="prevStep()">Previous Step</button>
+        <button id="next-step-btn" onclick="nextStep()">Next Step</button>
+    </div>
+    <div style="height: 100px;"></div> <!-- Blank space -->
+{% endblock %}

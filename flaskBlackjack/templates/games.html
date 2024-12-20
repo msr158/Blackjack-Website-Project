@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Games</title>
+<style>
+    /* Style for the buttons */
+    .game-link {
+        display: inline-block;
+        padding: 20px 30px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        margin-right: 1000px;
+        margin-bottom: 100px; 
+        background-image: url('{{ url_for('static', filename='images/table.jpg') }}'); /* Set the background image */
+        background-size: auto, cover; /* Scale the background image */
+        background-position: center; /* Center the background image */
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+    }
+    /* Style for the images */
+    .game-img {
+        width: 150px; /* Adjust the width of the images */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Adjust the space between image and text */
+    }
+</style>
+{% endblock %}
+
+{% block h1 %}
+<h1>Games</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Games</h1>
+    <ul>
+        <li>
+            <a href="{{ url_for('blackjack') }}" class="game-link">
+                <img src="{{ url_for('static', filename='images/Blackjack.png') }}" alt="Blackjack" class="game-img">
+                Play Blackjack!
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('baccarat') }}" class="game-link">
+                <img src="{{ url_for('static', filename='images/Baccarat.jpg') }}" alt="Baccarat" class="game-img">
+                Play Baccarat!
+            </a>
+        </li>
+    </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+    {% block head %}
+    <title>User Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #e00d0d;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    {% endblock %} 
+
+    {% block h1 %}
+    <h1>Registration</h1>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container cyber-glitch-2 cyber-tile">
+        <h2>User Registration</h2>
+        <form action = "{{ url_for('registration') }}" method="post" id="registrationForm">
+            <label for="Email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="Password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    {% endblock %}

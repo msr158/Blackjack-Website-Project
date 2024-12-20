@@ -1,0 +1,19 @@
+Why am I doing research?:
+     The purpose of the SLQ research that I am doing is because it is necessary for the database aspect of the project.
+
+
+What you expect to learn/do:
+        The expectation of what I am supposed to do after researching SLQ would be to implement a way of 
+        saving users login information so the user can have all their data saved in the database.
+         Additionally, the SLQ research can further help in the project when implementing other features
+          such as tracking in game currency, tracking wins etc.
+
+
+What do you expect to do with it, including any code you expect to write:
+        I expect to write code that implements a way to save user login information and also be able to
+         register for an account. 
+
+
+What task(s) in Jira represent the work you will do that was/is dependent on the research/training.:
+        The Jira task that represents the work that is dependent is
+         "Connect the registration page to database to save user profile".

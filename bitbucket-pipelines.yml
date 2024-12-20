@@ -1,0 +1,36 @@
+image: python:3.12
+
+pipelines:
+  default:
+    - step:
+        name: Test
+        caches:
+          - pip
+        script:
+          - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          - if [ -f .env ]; then echo ".env file should not be committed!" && exit 1; fi
+  branches:
+    main:
+      - step:
+          name: Test
+          caches:
+            - pip
+          script:
+            - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            - if [ -f .env ]; then echo ".env file should not be committed!" && exit 1; fi
+      - step:
+          name: Build
+          caches:
+            - pip
+          script:
+            - git archive --format=tar.gz main -o flaskBlackjack.tar.gz
+          artifacts:
+            - flaskBlackjack.tar.gz
+      - step:
+          name: Deploy to Heroku
+          script:
+            - pipe: atlassian/heroku-deploy:2.4.0
+              variables:
+                HEROKU_API_KEY: $HEROKU_API_KEY
+                HEROKU_APP_NAME: $HEROKU_APP_NAME
+                ZIP_FILE: flaskBlackjack.tar.gz
